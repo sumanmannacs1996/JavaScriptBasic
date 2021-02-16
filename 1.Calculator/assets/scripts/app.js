@@ -5,17 +5,12 @@ let calcDescription ='';
 let logEntry='';
 let inputData;
 
-function getUserInput(){
+const calculateResult =(calculationType)=>{
     if(userInput.value == ''){
         alert("Please Enter The Number First!!")
-        userInput.textContent =0;
-        inputData =0;
         return false;
     }
     inputData = parseFloat(userInput.value);
-}
-const calculateResult =(calculationType)=>{
-    getUserInput();
     if(calculationType =="+"){
         newResult = currentResult + inputData;
         operationSymbol ='+' ;  
@@ -39,6 +34,7 @@ const calculateResult =(calculationType)=>{
     logEntry = logEntry + ` ${calculationType} ${inputData}`;
     currentResult = newResult;
     outputResult(currentResult,calcDescription,logEntry);
+    userInput.value=''; //clearing the value after calculation
 
 }
 
