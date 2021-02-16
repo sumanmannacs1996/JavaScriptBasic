@@ -2,36 +2,67 @@ const defaultResult =0;
 let currentResult = defaultResult;
 let newResult;
 let calcDescription ='';
+let logEntry='';
+let inputData;
 
 function getUserInput(){
-    return parseFloat(userInput.value);
+    if(userInput.value == ''){
+        alert("Please Enter The Number First!!")
+        userInput.textContent =0;
+        inputData =0;
+    }
+    inputData = parseFloat(userInput.value);
 }
 const add =()=>{
-    newResult = currentResult + getUserInput();
-    calcDescription = `${currentResult} + ${getUserInput()}` ;
+    getUserInput();
+    newResult = currentResult + inputData;
+    calcDescription = `${currentResult} + ${inputData}` ;
+    if(currentResult ==0)
+    logEntry = logEntry+calcDescription;
+    else
+    logEntry = logEntry + ` + ${inputData}`;
+    console.log(logEntry);
     currentResult = newResult;
-    outputResult(currentResult,calcDescription);
+    outputResult(currentResult,calcDescription,logEntry);
 }
 
 const subtract =()=>{
-    newResult = currentResult - getUserInput();
-    calcDescription = `${currentResult} - ${getUserInput()}` ;
+    getUserInput();
+    newResult = currentResult -inputData;
+    calcDescription = `${currentResult} - ${inputData}` ;
+    if(currentResult ==0)
+    logEntry = logEntry+calcDescription;
+    else
+    logEntry = logEntry + ` - ${inputData}`;
+    console.log(logEntry);
     currentResult = newResult;
-    outputResult(currentResult,calcDescription);
+    outputResult(currentResult,calcDescription,logEntry);
 }
 
 const multply =()=>{
-    newResult = currentResult * getUserInput();
-    calcDescription = `${currentResult} * ${getUserInput()}` ;
+    getUserInput();
+    newResult = currentResult * inputData;
+    calcDescription = `${currentResult} * ${inputData}` ;
+    if(currentResult ==0)
+    logEntry = logEntry+calcDescription;
+    else
+    logEntry = logEntry + ` * ${inputData}`;
+    console.log(logEntry);
     currentResult = newResult;
-    outputResult(currentResult,calcDescription);
+    outputResult(currentResult,calcDescription,logEntry);
 }
 
 const devide =()=>{
-    newResult = currentResult / getUserInput();
-    calcDescription = `${currentResult} / ${getUserInput()}` ;
+    getUserInput();
+    newResult = currentResult / inputData;
+    calcDescription = `${currentResult} / ${inputData}` ;
+    if(currentResult ==0)
+    logEntry = logEntry+calcDescription;
+    else
+    logEntry = logEntry + ` / ${inputData}`;
+    console.log(logEntry);
     currentResult = newResult;
-    outputResult(currentResult,calcDescription);
+    outputResult(currentResult,calcDescription,logEntry);
 }
 
 addBtn.addEventListener('click',add);

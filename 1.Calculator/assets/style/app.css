@@ -72,3 +72,9 @@ header {
     margin-top: 1rem;
     text-align: center;
   }
+
+  #logs,
+  #log {
+      font-size: 1rem;
+      color: gray;
+  }

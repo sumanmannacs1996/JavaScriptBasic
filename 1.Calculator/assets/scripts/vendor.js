@@ -5,8 +5,10 @@ const multplyBtn = document.getElementById('btn-multiply');
 const divitioBtn = document.getElementById('btn-divide');
 const currentResultOutput = document.getElementById('current-result');
 const currentCalculationOutput = document.getElementById('current-calculation');
+const calculationLogs = document.getElementById('logs');
 
-const outputResult = (result,txt)=>{
+const outputResult = (result,txt,logs)=>{
     currentResultOutput.textContent=result;
-    currentCalculationOutput.textContent =txt; 
+    currentCalculationOutput.textContent =txt;
+    calculationLogs.textContent=logs; 
 }
