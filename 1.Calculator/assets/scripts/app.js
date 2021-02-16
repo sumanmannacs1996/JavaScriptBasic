@@ -1,4 +1,4 @@
-const defaultResult =0;
+let defaultResult =0;
 let currentResult = defaultResult;
 let newResult;
 let calcDescription ='';
@@ -34,12 +34,13 @@ const calculateResult =(calculationType)=>{
         operationSymbol ='/' ; 
     }
     calcDescription = `${currentResult} ${calculationType} ${inputData}` ;
-    if(currentResult ==0)
+    if(defaultResult ==0)
     logEntry = logEntry+calcDescription;
     else
     logEntry = logEntry + ` ${calculationType} ${inputData}`;
     currentResult = newResult;
     outputResult(currentResult,calcDescription,logEntry);
+    defaultResult =1;
     userInput.value=''; //clearing the value after calculation
 
 }
