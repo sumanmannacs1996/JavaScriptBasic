@@ -14,52 +14,48 @@ function getUserInput(){
     }
     inputData = parseFloat(userInput.value);
 }
-const add =()=>{
+const calculateResult =(calculationType)=>{
     getUserInput();
-    newResult = currentResult + inputData;
-    calcDescription = `${currentResult} + ${inputData}` ;
+    if(calculationType =="+"){
+        newResult = currentResult + inputData;
+        operationSymbol ='+' ;  
+    }
+    else if(calculationType =='-'){
+        newResult = currentResult - inputData;
+        operationSymbol ='-' ; 
+    }
+    else if(calculationType =='*'){
+        newResult = currentResult * inputData;
+        operationSymbol ='*' ; 
+    }
+    else if(calculationType =='/'){
+        newResult = currentResult / inputData;
+        operationSymbol ='/' ; 
+    }
+    calcDescription = `${currentResult} ${calculationType} ${inputData}` ;
     if(currentResult ==0)
     logEntry = logEntry+calcDescription;
     else
-    logEntry = logEntry + ` + ${inputData}`;
+    logEntry = logEntry + ` ${calculationType} ${inputData}`;
     currentResult = newResult;
     outputResult(currentResult,calcDescription,logEntry);
+
+}
+
+const add =()=>{
+    calculateResult("+");
 }
 
 const subtract =()=>{
-    getUserInput();
-    newResult = currentResult -inputData;
-    calcDescription = `${currentResult} - ${inputData}` ;
-    if(currentResult ==0)
-    logEntry = logEntry+calcDescription;
-    else
-    logEntry = logEntry + ` - ${inputData}`;
-    currentResult = newResult;
-    outputResult(currentResult,calcDescription,logEntry);
+    calculateResult("-");
 }
 
 const multply =()=>{
-    getUserInput();
-    newResult = currentResult * inputData;
-    calcDescription = `${currentResult} * ${inputData}` ;
-    if(currentResult ==0)
-    logEntry = logEntry+calcDescription;
-    else
-    logEntry = logEntry + ` * ${inputData}`;;
-    currentResult = newResult;
-    outputResult(currentResult,calcDescription,logEntry);
+    calculateResult("*");
 }
 
 const devide =()=>{
-    getUserInput();
-    newResult = currentResult / inputData;
-    calcDescription = `${currentResult} / ${inputData}` ;
-    if(currentResult ==0)
-    logEntry = logEntry+calcDescription;
-    else
-    logEntry = logEntry + ` / ${inputData}`;
-    currentResult = newResult;
-    outputResult(currentResult,calcDescription,logEntry);
+    calculateResult("/");
 }
 
 addBtn.addEventListener('click',add);
