@@ -24,6 +24,12 @@ const calculateResult =(calculationType)=>{
         operationSymbol ='*' ; 
     }
     else if(calculationType =='/'){
+        if(inputData == 0){
+            alert('Division By Zero Not Possible!!')
+            userInput.value=''; //clearing the value after calculation
+            return false;
+        }
+
         newResult = currentResult / inputData;
         operationSymbol ='/' ; 
     }
