@@ -10,6 +10,7 @@ function getUserInput(){
         alert("Please Enter The Number First!!")
         userInput.textContent =0;
         inputData =0;
+        return false;
     }
     inputData = parseFloat(userInput.value);
 }
@@ -21,7 +22,6 @@ const add =()=>{
     logEntry = logEntry+calcDescription;
     else
     logEntry = logEntry + ` + ${inputData}`;
-    console.log(logEntry);
     currentResult = newResult;
     outputResult(currentResult,calcDescription,logEntry);
 }
@@ -34,7 +34,6 @@ const subtract =()=>{
     logEntry = logEntry+calcDescription;
     else
     logEntry = logEntry + ` - ${inputData}`;
-    console.log(logEntry);
     currentResult = newResult;
     outputResult(currentResult,calcDescription,logEntry);
 }
@@ -46,8 +45,7 @@ const multply =()=>{
     if(currentResult ==0)
     logEntry = logEntry+calcDescription;
     else
-    logEntry = logEntry + ` * ${inputData}`;
-    console.log(logEntry);
+    logEntry = logEntry + ` * ${inputData}`;;
     currentResult = newResult;
     outputResult(currentResult,calcDescription,logEntry);
 }
@@ -60,7 +58,6 @@ const devide =()=>{
     logEntry = logEntry+calcDescription;
     else
     logEntry = logEntry + ` / ${inputData}`;
-    console.log(logEntry);
     currentResult = newResult;
     outputResult(currentResult,calcDescription,logEntry);
 }
