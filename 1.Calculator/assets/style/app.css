@@ -31,9 +31,9 @@ header {
     max-width: 90%;
 }
 
-#calcultor input{
-    font-size: 3rem;
-    width: 10rem;
+#input-mumber{
+    font-size: 2.5rem;
+    width: 15rem;
     padding: 0.15rem;
     margin: auto;
     display: block;
@@ -49,8 +49,9 @@ header {
      background: tomato;
      color: white;
      border: 1px solid tomato;
-     padding: 1rem;
+     padding: 0.9rem;
      cursor: pointer;
+     font-size: 1.3rem;
  } 
 
  #calculator button:focus {
@@ -59,8 +60,8 @@ header {
 
   #calculator button:hover,
   #calculator button:active{
-      background: gray;
-      border-color: gray;
+      background: black;
+      border-color: black;
   }
 
   #calc-actions button {
