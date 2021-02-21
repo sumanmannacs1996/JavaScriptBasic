@@ -14,15 +14,15 @@ const adjustHealthBars = (maxLife)=>{
 }
 
 const delMonsterDamage =(damage)=>{
-    const damage =Math.random() * damage;
-    monsterHealthBar.value = monsterHealthBar.value -damage;
-    return damage;
+    const damageValue =Math.random() * damage;
+    monsterHealthBar.value = monsterHealthBar.value -damageValue;
+    return damageValue;
 }
 
 const delPlayerDamage =(damage)=>{
-    const damage =Math.random() * damage;
-    playerHealthBar.value = playerHealthBar.value -damage;
-    return damage;
+    const damageValue =Math.random() * damage;
+    playerHealthBar.value = playerHealthBar.value -damageValue;
+    return damageValue;
 }
 
 const increasePlayerHealth =(healthValue)=>{
