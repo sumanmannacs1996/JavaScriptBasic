@@ -71,7 +71,7 @@ button {
     flex-direction: column;
   }
 
-  #bonus-life {
+  #bonus-life{
     font-weight: bold;
     color: white;
     background: #ff0062;
