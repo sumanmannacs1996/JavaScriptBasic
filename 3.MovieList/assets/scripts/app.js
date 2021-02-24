@@ -6,11 +6,18 @@ const FINAL_ADD_MOVIE_BTN = ADD_MOVIE_MODAL.querySelector(".btn--success");
 const USER_INPUTS = ADD_MOVIE_MODAL.querySelectorAll("input");
 const ENTRY_SECTION = document.getElementById("entry-text");
 const LIST_ROOOT = document.getElementById("movie-list");
+let UNIQUE_ID =0;
 
 let Movies =[];
 
 
-const renderNewMovieElement =(title,imageUrl,rating)=>{
+const deleteMovieHandler=(movieId)=>{
+    let index = Movies.findIndex((p)=>p.id == movieId);
+    Movies.splice(index,1);
+    LIST_ROOOT.children[index].remove();
+}
+
+const renderNewMovieElement =(title,imageUrl,rating,id)=>{
     const newMovieElemnt = document.createElement("li");
     newMovieElemnt.className ='movie-element';
     newMovieElemnt.innerHTML=`
@@ -19,9 +26,10 @@ const renderNewMovieElement =(title,imageUrl,rating)=>{
     </div>
     <div class="movie-element__info">
         <h2>${title}</h2>
-        <p>${rating}</p>
+        <p>${rating}/5 stars</p>
     </div>
     `;
+    newMovieElemnt.addEventListener("click",deleteMovieHandler.bind(this,id));
     LIST_ROOOT.append(newMovieElemnt);
 
 }
@@ -49,15 +57,17 @@ const addMovieHandler= ()=>{
         alert("Please Enter Valid Values (Rating between 1 and 5).");
         return false;
     }
+    let movieId = UNIQUE_ID++;
     let newMovie ={
         title:titleValue,
         image:imageValue,
-        rating:ratingValue
+        rating:ratingValue,
+        id:movieId
     }
     Movies.push(newMovie);
     toggleMovieModel();
     clearMovieInputs();
-    renderNewMovieElement(titleValue,imageValue,ratingValue);
+    renderNewMovieElement(titleValue,imageValue,ratingValue,movieId);
     updateUI();
 }
 
