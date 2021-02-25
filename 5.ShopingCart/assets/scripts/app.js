@@ -13,8 +13,7 @@ class PRODUCT_ITEM{
     }
 
     addToCart(){
-        console.log("Adding Product To Cart....");
-        console.log(this.product);
+        APP.addProductToCart(this.product);
     }
 
     renderProduct(){
@@ -60,9 +59,10 @@ class PRODUCT_LIST {
 
 class SHOPING_CART{
     cartItems =[];
-    addProduct(){
+    addProduct(product){
         this.cartItems.push(product);
-        this.totalCartValue.innerHTML =`<h2>Total: ₹${1}</h2>`
+        let sum = this.cartItems.reduce((s,p)=>s+(+p.price),0);
+        this.totalCartValue.innerHTML =`<h2>Total: ₹${sum}</h2>`
     }
 
     renderShopingCart(){
@@ -78,14 +78,15 @@ class SHOPING_CART{
 };
 
 class SHOP{
+    static shoping_cart;
     render(){
         const RENDER_HOOK=document.getElementById("app");
 
         let product_list = new PRODUCT_LIST();
         let pl =product_list.renderList();
 
-        let shoping_cart = new SHOPING_CART();
-        let sk =shoping_cart.renderShopingCart();
+        this.shoping_cart = new SHOPING_CART();
+        let sk =this.shoping_cart.renderShopingCart();
 
         RENDER_HOOK.append(sk);
         RENDER_HOOK.append(pl);
@@ -94,9 +95,14 @@ class SHOP{
 }
 
 class APP{
+    static cart;
     static start(){
         let shop = new SHOP();
         shop.render();
+        this.cart = shop.shoping_cart;
+    }
+    static addProductToCart(product){
+        this.cart.addProduct(product);
     }
 }
 
