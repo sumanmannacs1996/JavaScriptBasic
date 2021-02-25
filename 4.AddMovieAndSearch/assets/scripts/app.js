@@ -11,7 +11,7 @@ let UNIQUE_ID = Movies.length;
 const searchHandler =()=>{
     MOVIE_LIST.innerHTML="";
     let searchTitle = SEARCH_INPUT.value.trim();
-    let arr = Movies.filter((p)=>p.info.title.includes(searchTitle));
+    let arr = Movies.filter((p)=>p.info.title.toLowerCase().includes(searchTitle.toLowerCase()));
     let extraName,extraValue;
     for(let p of arr){
         for([key,value] of Object.entries(p.info)){
