@@ -47,7 +47,6 @@ class PRODUCT_LIST {
     constructor(){}
     
     renderList(){
-        const RENDER_HOOK=document.getElementById("app");
         let productList =document.createElement('ul');
         productList.classList.add("product-list");
         for(let item of this.products){
@@ -55,9 +54,39 @@ class PRODUCT_LIST {
             const rendered_product = product_item.renderProduct();
             productList.append(rendered_product);
         }
-        RENDER_HOOK.append(productList);
+        return productList;
     }
 };
 
-let product_list = new PRODUCT_LIST();
-product_list.renderList();
+class SHOPING_CART{
+    cartItems =[];
+
+    renderShopingCart(){
+        const cartElement =document.createElement("section");
+        cartElement.innerHTML=`
+        <h2>Total: ₹${0}</h2>
+        <button>Order Now!</button>
+        `;
+        cartElement.classList.add("cart");
+        return cartElement;
+    }
+};
+
+class SHOP{
+    render(){
+        const RENDER_HOOK=document.getElementById("app");
+
+        let product_list = new PRODUCT_LIST();
+        let pl =product_list.renderList();
+
+        let shoping_cart = new SHOPING_CART();
+        let sk =shoping_cart.renderShopingCart();
+
+        RENDER_HOOK.append(sk);
+        RENDER_HOOK.append(pl);
+    }
+
+}
+
+let shop = new SHOP();
+shop.render();
