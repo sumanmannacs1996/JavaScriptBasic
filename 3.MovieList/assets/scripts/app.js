@@ -21,7 +21,8 @@ const ConformDeletionHandler=(movieId)=>{
 
 const deleteMovie=(movieId)=>{
     let index = Movies.findIndex((p)=>p.id == movieId);
-    LIST_ROOOT.children[index].remove();
+    //LIST_ROOOT.children[index].remove();
+	LIST_ROOOT.removeChild(LIST_ROOOT.children[index]);
     Movies.splice(index,1);
     updateUI();
 }
