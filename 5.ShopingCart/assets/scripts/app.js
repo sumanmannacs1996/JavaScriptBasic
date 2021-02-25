@@ -93,5 +93,11 @@ class SHOP{
 
 }
 
-let shop = new SHOP();
-shop.render();
+class APP{
+    static start(){
+        let shop = new SHOP();
+        shop.render();
+    }
+}
+
+APP.start();
