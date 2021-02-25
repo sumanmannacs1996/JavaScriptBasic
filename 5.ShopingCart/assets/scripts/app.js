@@ -11,6 +11,12 @@ class PRODUCT_ITEM{
     constructor(product){
         this.product = product;
     }
+
+    addToCart(){
+        console.log("Adding Product To Cart....");
+        console.log(this.product);
+    }
+
     renderProduct(){
         let productElement =document.createElement("li");
             productElement.classList.add("product-item");
@@ -25,6 +31,8 @@ class PRODUCT_ITEM{
                 </div>
             </div>
             `;
+            const addCartButton = productElement.querySelector("button");
+            addCartButton.addEventListener('click',this.addToCart.bind(this));
             return productElement;
     }
 
@@ -33,8 +41,8 @@ class PRODUCT_ITEM{
 class PRODUCT_LIST {
     products =[
         new PRODUCT("A Cycle","assets/image/Cycle.png",40000,"A Electric bicycle!!"),
-        new PRODUCT("A Motor Cycle","assets/image/Cycle.png",40000,"A Electric bicycle!!"),
-        new PRODUCT("A Car","assets/image/Car.jpeg",120000,"A cruiser moror bike!!")
+        new PRODUCT("A Motor Cycle","assets/image/Bike.png",120000,"A cruiser moror bike!!"),
+        new PRODUCT("A Car","assets/image/Car.jpeg",959999,"A beautiful car")
     ]
     constructor(){}
     
