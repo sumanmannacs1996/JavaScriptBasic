@@ -41,7 +41,7 @@ class PRODUCT_ITEM{
 class PRODUCT_LIST {
     products =[
         new PRODUCT("A Cycle","assets/image/Cycle.png",40000,"A Electric bicycle!!"),
-        new PRODUCT("A Motor Cycle","assets/image/Bike.png",120000,"A cruiser moror bike!!"),
+        new PRODUCT("A Motor Bike","assets/image/Bike.png",120000,"A cruiser motor bike!!"),
         new PRODUCT("A Car","assets/image/Car.jpeg",959999,"A beautiful car")
     ]
     constructor(){}
