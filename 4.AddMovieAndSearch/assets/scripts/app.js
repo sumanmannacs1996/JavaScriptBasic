@@ -27,7 +27,7 @@ const renderMovies =(title,extraName,extraValue)=>{
         MOVIE_LIST.classList.add("visible");
     }
     let newMovieObj = document.createElement("li");
-    let txt = `${title}     ${extraName}:${extraValue}`;
+    let txt = `${title}  -  ${extraName}:${extraValue}`;
     newMovieObj.textContent = txt;
     MOVIE_LIST.append(newMovieObj);
 
