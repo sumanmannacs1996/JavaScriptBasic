@@ -1,24 +1,23 @@
+class Product{
+    title="DEFAULT";
+    imageUrl;
+    price;
+    description;
+
+    constructor(title,imageUrl,price,description){
+        this.title = title;
+        this.imageUrl = imageUrl;
+        this.price = price;
+        this.description = description;
+    }
+};
+
 const productList={
     products:[
-        {
-            title:"A Cycle",
-            imageUrl:"assets/image/Cycle.png",
-            price:40000,
-            description:"A Electric bicycle!!"
-        },
-        {
-            title:"A Motor Cycle",
-            imageUrl:"assets/image/Bike.png",
-            price:120000,
-            description:"A cruiser moror bike!!"
-        },
-        {
-            title:"A Car",
-            imageUrl:"assets/image/Car.jpeg",
-            price:959999,
-            description:"A Beautiful car!!"
-        }
-    ],
+        new Product("A Cycle","assets/image/Cycle.png",40000,"A Electric bicycle!!"),
+        new Product("A Motor Cycle","assets/image/Cycle.png",40000,"A Electric bicycle!!"),
+        new Product("A Car","assets/image/Car.jpeg",120000,"A cruiser moror bike!!")
+        ],
     render(){
         const RENDER_HOOK=document.getElementById("app");
         let productList =document.createElement('ul');
