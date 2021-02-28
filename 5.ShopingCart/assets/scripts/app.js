@@ -64,6 +64,10 @@ class SHOPING_CART{
         let sum = this.cartItems.reduce((s,p)=>s+(+p.price),0);
         this.totalCartValue.innerHTML =`<h2>Total: ₹${sum}</h2>`
     }
+    orderNow(){
+        console.log("Ordering....")
+        console.log(this.cartItems);
+    }
 
     renderShopingCart(){
         const cartElement =document.createElement("section");
@@ -73,6 +77,8 @@ class SHOPING_CART{
         `;
         cartElement.classList.add("cart");
         this.totalCartValue = cartElement.querySelector("h2");
+        const ORDER_BTN = cartElement.querySelector("button");
+        ORDER_BTN.addEventListener("click",this.orderNow.bind(this));
         return cartElement;
     }
 };
