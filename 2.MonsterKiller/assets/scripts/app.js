@@ -1,6 +1,8 @@
 const ATTACK_VALUE =10;
 const STRONG_ATTACK_VALUE = 20;
 const HEAL_VALUE = 10;
+const BACKDROP = document.getElementById("backdrop");
+const LOGS = document.getElementById('logs');
 let chosenMaxLife =100;
 let hasBonusLife =true;
 let battelLog=[];
@@ -98,11 +100,25 @@ let writeToLog=(event,target,value,finalMonsterHealth,finalPlayerHealth)=>{
         FinalMonsterHealth:finalMonsterHealth,
         FinalPlayerHealth:finalPlayerHealth
     }
+    let logParagraph = document.createElement("li");
+    logParagraph.classList.add('log-element');
+    logParagraph.innerHTML=`
+    <h4>Event: ${event}, Target: ${target} Value:${value}, FinalMonsterHealth: ${finalMonsterHealth}, FinalPlayerHealth: ${finalPlayerHealth}</h4>
+    `;
+    let HOOK = document.getElementById("log-list");
+    HOOK.append(logParagraph);
     battelLog.push(logEntry);
 }
 
 let showLog =()=>{
+    BACKDROP.classList.add("visible");
+    LOGS.classList.add("visible");
     console.log(battelLog);
+}
+
+let backdropHandler =()=>{
+    BACKDROP.classList.remove('visible');
+    LOGS.classList.remove("visible");
 }
 
 
@@ -113,3 +129,4 @@ strongAttackBtn.addEventListener('click',strongAttacHandler);
 healBtn.addEventListener('click',healHandler);
 
 logBtn.addEventListener('click',showLog);
+BACKDROP.addEventListener('click',backdropHandler);

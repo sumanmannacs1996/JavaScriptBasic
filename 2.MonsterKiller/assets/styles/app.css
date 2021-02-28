@@ -80,4 +80,59 @@ button {
     border-radius: 10px;
     text-align: center;
     margin: 0 0.5rem;
-  } 
+  }
+  
+  #backdrop{
+    position: fixed;
+    width: 100%;
+    height: 100vmax;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 10;
+    pointer-events: none;
+    display: none;
+  }
+
+  #backdrop.visible
+  {
+    display: block;
+    pointer-events: all;
+  }
+
+  .card{
+    background:black;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    display: none;
+    z-index: 100;
+    width: 70%;
+    top: 9vh;
+    left: 10%;
+    position: relative;
+  }
+
+  #logs.visible
+  {
+    display: block;
+    pointer-events: all;
+  }
+
+
+  .log-element{
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    border-radius: 10px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    background: orange;
+    text-align: center;
+  }
+
+  .log-element h4{
+    text-align: center;
+    color: #a927f5;
+  }
