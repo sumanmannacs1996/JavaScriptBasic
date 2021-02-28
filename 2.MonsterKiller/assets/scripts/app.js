@@ -103,7 +103,7 @@ let writeToLog=(event,target,value,finalMonsterHealth,finalPlayerHealth)=>{
     let logParagraph = document.createElement("li");
     logParagraph.classList.add('log-element');
     logParagraph.innerHTML=`
-    <h4>Event: ${event}, Target: ${target} Value:${value}, FinalMonsterHealth: ${finalMonsterHealth}, FinalPlayerHealth: ${finalPlayerHealth}</h4>
+    <h4>Event: ${event}, Target: ${target}, Value:${value}, FinalMonsterHealth: ${finalMonsterHealth}, FinalPlayerHealth: ${finalPlayerHealth}</h4>
     `;
     let HOOK = document.getElementById("log-list");
     HOOK.append(logParagraph);
