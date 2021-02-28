@@ -59,10 +59,10 @@ let attack =(value)=>{
     else if(value == STRONG_ATTACK_VALUE)
     event = "STRONG ATTACK";
     let damage = delMonsterDamage(value);
-    currentMonsterHealth = currentMonsterHealth - damage;    
+    currentMonsterHealth = (currentMonsterHealth - damage).toFixed(2);    
     writeToLog(`PLAYER ${event}`,"MONSTER",damage,currentMonsterHealth,currentPlayersHealth);
     damage = delPlayerDamage(value);
-    currentPlayersHealth = currentPlayersHealth - damage;
+    currentPlayersHealth = (currentPlayersHealth - damage).toFixed(2);
     writeToLog(`MONSTER ${event}`,"PLAYER",damage,currentMonsterHealth,currentPlayersHealth);
     endRound(); 
 }
@@ -83,7 +83,7 @@ let healHandler =()=>{
     currentPlayersHealth = currentPlayersHealth + HEAL_VALUE;
     writeToLog("PLAYER HEAL","PLAYER",HEAL_VALUE,currentMonsterHealth,currentPlayersHealth);
     let  damage = delPlayerDamage(ATTACK_VALUE);
-    currentPlayersHealth = currentPlayersHealth - damage;
+    currentPlayersHealth = (currentPlayersHealth - damage).toFixed(2);
     writeToLog("MONSTER ATTACK","PLAYER",damage,currentMonsterHealth,currentPlayersHealth);
     endRound();
     }    
