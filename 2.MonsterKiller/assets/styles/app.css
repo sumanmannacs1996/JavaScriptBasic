@@ -101,15 +101,18 @@ button {
   }
 
   .card{
-    background:black;
+    background:white;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
     display: none;
     z-index: 100;
     width: 70%;
     top: 9vh;
-    left: 10%;
+    left: 13%;
     position: relative;
+	padding: 1rem;
+	max-height: 25rem;
+	overflow: scroll;
   }
 
   #logs.visible
